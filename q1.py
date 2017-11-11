@@ -35,6 +35,26 @@ pl.show()
 
 
 
+
+
+clubJoining=data['Club_Joining'].tolist()
+contractExpiry=data['Contract_Expiry'].tolist()
+joiningYear=['1']
+del joiningYear[0]
+
+
+i=0
+for i in range(0,17588):
+	print(clubJoining[i])
+	#joiningYear.insert(i,(cJ[6:10]))
+	#i=i+1
+
+#print(joiningYear)
+
+
+
+
+
 i=0;
 m=['0']
 del m[0]
