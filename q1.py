@@ -31,3 +31,22 @@ pl.xlabel('Teams')
 pl.ylabel('Attributes')
 pl.plot(x,h,'*',color='red')
 pl.show()
+
+
+
+
+i=0;
+m=['0']
+del m[0]
+for key,value in k:
+	aggression=[value['Aggression'].agg(np.mean)]
+	m.insert(i,aggression)
+	i+=1
+
+pl.xticks(x, xTicks)
+pl.xticks(range(160), xTicks,rotation=45)
+pl.title('Aggression')
+pl.xlabel('Teams')
+pl.ylabel('Attributes')
+pl.plot(x,m,'*',color='blue')
+pl.show()
