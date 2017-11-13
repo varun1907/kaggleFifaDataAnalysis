@@ -29,11 +29,11 @@ pl.title('best goal')
 pl.xlabel('Teams')
 pl.ylabel('Attributes')
 pl.plot(x,h,'*',color='red')
+pl.grid()
 pl.show()
 
 
 #question first finishes
-
 
 #question second
 
@@ -50,14 +50,12 @@ pl.xticks(range(160), xTicks,rotation=45)
 pl.title('Aggression')
 pl.xlabel('Teams')
 pl.ylabel('Attributes')
-pl.plot(x,m,'*',color='blue')
+pl.plot(x,m,'*',color='green')
+pl.grid()
 pl.show()
 
 
 #question second finishes
-
-
-
 
 
 
@@ -101,5 +99,5 @@ pl.title('Contract Period')
 pl.xlabel('Player')
 pl.ylabel('Duration')
 pl.plot(rg,joiningYear,'*',color='blue')
-plt.grid()
+pl.grid()
 pl.show()
