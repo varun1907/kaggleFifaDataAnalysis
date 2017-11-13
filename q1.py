@@ -57,11 +57,16 @@ pl.show()
 #question second finishes
 
 
+
+
+
+
+
 #question fifth
-
-
-clubJoining=data['Club_Joining'].tolist()
-contractExpiry=data['Contract_Expiry'].tolist()
+#ax = plt.subplots()
+dat=pd.read_csv('FullData1.csv')
+clubJoining=dat['Club_Joining'].tolist()
+contractExpiry=dat['Contract_Expiry'].tolist()
 joiningYear=['1']
 del joiningYear[0]
 
@@ -96,4 +101,5 @@ pl.title('Contract Period')
 pl.xlabel('Player')
 pl.ylabel('Duration')
 pl.plot(rg,joiningYear,'*',color='blue')
+plt.grid()
 pl.show()
