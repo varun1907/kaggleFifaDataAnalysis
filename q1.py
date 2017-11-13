@@ -1,6 +1,3 @@
-
-#question first
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -73,23 +70,30 @@ del joiningYear[0]
 
 
 i=0
-while i<len(clubJoining):
+dat=pd.read_csv('FullData1.csv')
+name = dat['Name'].tolist()
+
+clubJoining=dat['Club_Joining'].tolist()
+contractExpiry=dat['Contract_Expiry'].tolist()
+joiningYear=['1']
+del joiningYear[0]
+s=['a']
+del s[0]
+while i<100:
     c=clubJoining[i]
     c=c[-4:]
     joiningYear.insert(i,c);
     joiningYear[i]=float(joiningYear[i])
     joiningYear[i]=contractExpiry[i]-joiningYear[i]
+    s.insert(i,name[i])
     i=i+1
 
 
-rg=list(range(17588))
-pl.xticks(rg, xTicks)
-pl.xticks(range(100), xTicks,rotation=45)
+rg=list(range(100))
+pl.xticks(rg, s)
+pl.xticks(range(100), s,rotation=90)
 pl.title('Contract Period')
 pl.xlabel('Player')
 pl.ylabel('Duration')
 pl.plot(rg,joiningYear,'*',color='blue')
 pl.show()
-
-
-#question 5 finishes
