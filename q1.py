@@ -1,10 +1,14 @@
 
+#question first
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import pylab as pl
+import math
 
 data=pd.read_csv('FullData.csv')
+
 k=data.groupby('Nationality')
 
 xTicks=['manish']
@@ -21,8 +25,6 @@ for name,group in k:
     h.insert(i,np.mean(g))
     i=i+1
 
-
-
 x = list(range(160))
 pl.xticks(x, xTicks)
 pl.xticks(range(160), xTicks,rotation=45)
@@ -33,27 +35,10 @@ pl.plot(x,h,'*',color='red')
 pl.show()
 
 
+#question first finishes
 
 
-
-
-clubJoining=data['Club_Joining'].tolist()
-contractExpiry=data['Contract_Expiry'].tolist()
-joiningYear=['1']
-del joiningYear[0]
-
-
-i=0
-for i in range(0,17588):
-	print(clubJoining[i])
-	#joiningYear.insert(i,(cJ[6:10]))
-	#i=i+1
-
-#print(joiningYear)
-
-
-
-
+#question second
 
 i=0;
 m=['0']
@@ -70,3 +55,41 @@ pl.xlabel('Teams')
 pl.ylabel('Attributes')
 pl.plot(x,m,'*',color='blue')
 pl.show()
+
+
+#question second finishes
+
+
+#question fifth
+
+
+clubJoining=data['Club_Joining'].tolist()
+contractExpiry=data['Contract_Expiry'].tolist()
+joiningYear=['1']
+del joiningYear[0]
+
+#print(contractExpiry.isnull().values.any())
+
+
+
+i=0
+while i<len(clubJoining):
+    c=clubJoining[i]
+    c=c[-4:]
+    joiningYear.insert(i,c);
+    joiningYear[i]=float(joiningYear[i])
+    joiningYear[i]=contractExpiry[i]-joiningYear[i]
+    i=i+1
+
+
+rg=list(range(17588))
+pl.xticks(rg, xTicks)
+pl.xticks(range(100), xTicks,rotation=45)
+pl.title('Contract Period')
+pl.xlabel('Player')
+pl.ylabel('Duration')
+pl.plot(rg,joiningYear,'*',color='blue')
+pl.show()
+
+
+#question 5 finishes
