@@ -110,10 +110,6 @@ while i<17588:
 se = pd.Series(continent)
 data['Continent'] = se.values
 
-
-
-
-
 #question fourth
 
 
@@ -122,39 +118,39 @@ varun=data.set_index('Club')
 gupta=varun.loc[clubInput]
 #gupta=[varun['Reactions']agg(np.mean)]
 
-g={'Ball_Control'       : gupta['Ball_Control'].agg(np.mean),
-   'Dribbling'          : gupta['Dribbling'].agg(np.mean),
-   'Marking'            : gupta['Marking'].agg(np.mean),
-   'Sliding_Tackle'     : gupta['Sliding_Tackle'].agg(np.mean),
-   'Standing_Tackle'    : gupta['Standing_Tackle'].agg(np.mean),
-   'Aggression'         : gupta['Aggression'].agg(np.mean),
-   'Reactions'          : gupta['Reactions'].agg(np.mean),
-   'Attacking_Position' : gupta['Attacking_Position'].agg(np.mean),
-   'Interceptions'      : gupta['Interceptions'].agg(np.mean),
-   'Vision'             : gupta['Vision'].agg(np.mean),
-   'Composure'          : gupta['Composure'].agg(np.mean),
-   'Crossing'           : gupta['Crossing'].agg(np.mean),
-   'Short_Pass'         : gupta['Short_Pass'].agg(np.mean),
-   'Long_Pass'          : gupta['Long_Pass'].agg(np.mean),
-   'Acceleration'       : gupta['Acceleration'].agg(np.mean),
-   'Speed'              : gupta['Speed'].agg(np.mean),
-   'Stamina'            : gupta['Stamina'].agg(np.mean),
-   'Strength'           : gupta['Strength'].agg(np.mean),
-   'Balance'            : gupta['Balance'].agg(np.mean),
-   'Agility'            : gupta['Agility'].agg(np.mean),
-   'Jumping'            : gupta['Jumping'].agg(np.mean),
-   'Heading'            : gupta['Heading'].agg(np.mean),
-   'Shot_Power'         : gupta['Shot_Power'].agg(np.mean),
-   'Finishing'          : gupta['Finishing'].agg(np.mean),
-   'Long_Shots'         : gupta['Long_Shots'].agg(np.mean),
-   'Curve'              : gupta['Curve'].agg(np.mean),
-   'Freekick_Accuracy'  : gupta['Freekick_Accuracy'].agg(np.mean),
-   'Penalties'          : gupta['Penalties'].agg(np.mean),
-   'Volleys'            : gupta['Volleys'].agg(np.mean)}
+clubPreferredAttributes= { 'Ball_Control'       : gupta['Ball_Control'].agg(np.mean),
+                           'Dribbling'          : gupta['Dribbling'].agg(np.mean),
+                           'Marking'            : gupta['Marking'].agg(np.mean),
+                           'Sliding_Tackle'     : gupta['Sliding_Tackle'].agg(np.mean),
+                           'Standing_Tackle'    : gupta['Standing_Tackle'].agg(np.mean),
+                           'Aggression'         : gupta['Aggression'].agg(np.mean),
+                           'Reactions'          : gupta['Reactions'].agg(np.mean),
+                           'Attacking_Position' : gupta['Attacking_Position'].agg(np.mean),
+                           'Interceptions'      : gupta['Interceptions'].agg(np.mean),
+                           'Vision'             : gupta['Vision'].agg(np.mean),
+                           'Composure'          : gupta['Composure'].agg(np.mean),
+                           'Crossing'           : gupta['Crossing'].agg(np.mean),
+                           'Short_Pass'         : gupta['Short_Pass'].agg(np.mean),
+                           'Long_Pass'          : gupta['Long_Pass'].agg(np.mean),
+                           'Acceleration'       : gupta['Acceleration'].agg(np.mean),
+                           'Speed'              : gupta['Speed'].agg(np.mean),
+                           'Stamina'            : gupta['Stamina'].agg(np.mean),
+                           'Strength'           : gupta['Strength'].agg(np.mean),
+                           'Balance'            : gupta['Balance'].agg(np.mean),
+                           'Agility'            : gupta['Agility'].agg(np.mean),
+                           'Jumping'            : gupta['Jumping'].agg(np.mean),
+                           'Heading'            : gupta['Heading'].agg(np.mean),
+                           'Shot_Power'         : gupta['Shot_Power'].agg(np.mean),
+                           'Finishing'          : gupta['Finishing'].agg(np.mean),
+                           'Long_Shots'         : gupta['Long_Shots'].agg(np.mean),
+                           'Curve'              : gupta['Curve'].agg(np.mean),
+                           'Freekick_Accuracy'  : gupta['Freekick_Accuracy'].agg(np.mean),
+                           'Penalties'          : gupta['Penalties'].agg(np.mean),
+                           'Volleys'            : gupta['Volleys'].agg(np.mean)}
 
 
 #print(g)
-sorted_d = sorted(g.items(), key=operator.itemgetter(1),reverse=True)
+sorted_d = sorted(clubPreferredAttributes.items(), key=operator.itemgetter(1),reverse=True)
 #print(sorted_d)
 
 
