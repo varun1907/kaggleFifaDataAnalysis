@@ -353,7 +353,7 @@ continentpreferedvalues= { 'Ball_Control'       : rai['Ball_Control'].agg(np.mea
                            'Crossing'           : rai['Crossing'].agg(np.mean),
                            #'Short_Pass'         : rai['Short_Pass'].agg(np.mean),
                            #'Long_Pass'          : rai['Long_Pass'].agg(np.mean),
-                           #'Acceleration'       : rai['Acceleration'].agg(np.mean),                  
+                           #'Acceleration'       : rai['Acceleration'].agg(np.mean),
                            #'Speed'              : rai['Speed'].agg(np.mean),
                           # 'Stamina'            : rai['Stamina'].agg(np.mean),
                            #'Strength'           : rai['Strength'].agg(np.mean),
@@ -385,15 +385,12 @@ Continent_wise_atttribute=[asia_attributes+'\nContinent - Asia',
 
 
 max_attribute=[asia_max,europe_max,africa_max,north_america_max,australia_max,south_america_max]
-
 '''
 i=0
 while i<5:
     Continent_name.insert(i,key[i])
     best_attributes.insert(i,value[i])
     i=i+1                                                             #for pie chart
-
-
 plt.pie(best_attributes, labels=Continent_name,
                 autopct='%1.1f%%', shadow=True, startangle=90)
 '''
@@ -512,3 +509,73 @@ plt.grid()
 pl.show()
 
 # question fifth finishes
+
+
+
+#question sixth
+gkPositioning=data['GK_Positioning'].tolist()
+gkDiving=data['GK_Diving'].tolist()
+gkKicking=data['GK_Kicking'].tolist()
+gkHandling=data['GK_Handling'].tolist()
+gkReflexes=data['GK_Reflexes'].tolist()
+playerGoalKepperSkills=[]
+i=0
+while i<17588:
+    sumOfGoalKeeperSkills=gkPositioning[i]+gkDiving[i]+gkKicking[i]+gkHandling[i]+gkReflexes[i]
+    playerGoalKepperSkills.insert(i,sumOfGoalKeeperSkills)
+    sumOfGoalKeeperSkills=0
+    i=i+1
+
+#print(playerGoalKepperSkills[0])
+goalSkillsSumSeries = pd.Series(playerGoalKepperSkills)
+data['Goal_Skills_Sum'] = goalSkillsSumSeries.values
+teamsNames=[]
+teamGoalKeeperSkills=[]
+i=0
+for va,gu in k:
+    teamsNames.insert(i,va)
+    groups=gu['Goal_Skills_Sum']
+    teamGoalKeeperSkills.insert(i,groups)
+    i=i+1;
+maxGoalSkills=[]
+i=0
+while i<160:
+    maxPlayer=max(teamGoalKeeperSkills[i])
+    maxGoalSkills.insert(i,maxPlayer)
+    i=i+1
+
+dictionary = dict(zip(teamsNames, maxGoalSkills))
+sorted_dictionary = sorted(dictionary.items(), key=operator.itemgetter(1),reverse=True)
+
+sortedGoalKey=[]
+sortedGoalValue=[]
+sortedGoalKey=[x[0] for x in sorted_dictionary]
+sortedGoalValue=[x[1] for x in sorted_dictionary]
+
+sortedGoalKey1=[]
+sortedGoalValue1=[]
+
+i=0
+while i<15:
+    sortedGoalKey1.insert(i,sortedGoalKey[i])
+    sortedGoalValue1.insert(i,sortedGoalValue[i])
+    i=i+1
+
+
+plt.pie(sortedGoalValue1, labels=sortedGoalKey1,
+                autopct='%1.1f%%', shadow=True, startangle=90)
+
+
+plt.show()
+
+'''
+xqw = list(range(160))
+pl.xticks(xqw, sortedGoalKey)
+pl.xticks(range(160), xTicks,rotation=90)
+pl.title('best goal keeper')
+pl.xlabel('Teams')
+pl.ylabel('Attributes')
+pl.plot(x,sortedGoalValue,'*',color='red')
+plt.grid()
+pl.show()
+'''
