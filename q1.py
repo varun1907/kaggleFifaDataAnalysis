@@ -16,16 +16,27 @@ del xTicks[0]
 i=0
 for name,group in k:
     xTicks.insert(i,name)
-    g=[group['Freekick_Accuracy'].agg(np.mean),group['Volleys'].agg(np.mean),group['Curve'].agg(np.mean),group['Long_Shots'].agg(np.mean),
-       group['Finishing'].agg(np.mean),group['Shot_Power'].agg(np.mean),group['Ball_Control'].agg(np.mean),group['Marking'].agg(np.mean),
-       group['Attacking_Position'].agg(np.mean),group['Vision'].agg(np.mean),group['Acceleration'].agg(np.mean),group['Strength'].agg(np.mean),
-       group['Balance'].agg(np.mean),group['Agility'].agg(np.mean),group['Heading'].agg(np.mean)]
+    g=[group['Freekick_Accuracy'].agg(np.mean),
+    group['Volleys'].agg(np.mean),
+    group['Curve'].agg(np.mean),
+    group['Long_Shots'].agg(np.mean),
+    group['Finishing'].agg(np.mean),
+    group['Shot_Power'].agg(np.mean),
+    group['Ball_Control'].agg(np.mean),
+    group['Marking'].agg(np.mean),
+    group['Attacking_Position'].agg(np.mean),
+    group['Vision'].agg(np.mean),
+    group['Acceleration'].agg(np.mean),
+    group['Strength'].agg(np.mean),
+    group['Balance'].agg(np.mean),
+    group['Agility'].agg(np.mean),
+    group['Heading'].agg(np.mean)]
     h.insert(i,np.mean(g))
     i=i+1
 
 x = list(range(160))
 pl.xticks(x, xTicks)
-pl.xticks(range(160), xTicks,rotation=45)
+pl.xticks(range(160), xTicks,rotation=90)
 pl.title('best goal')
 pl.xlabel('Teams')
 pl.ylabel('Attributes')
@@ -34,10 +45,10 @@ plt.grid()
 pl.show()
 
 
-#question first finishes
+# question first finishes
 
 
-#question second
+# -> question second
 
 i=0;
 m=['0']
@@ -57,11 +68,11 @@ plt.grid()
 pl.show()
 
 
-#question second finishes
+# question second finishes
 
 
 
-#question third
+# -> question third
 
 africa = ['Algeria','Guinea Bissau','São Tomé & Príncipe','Guinea Bissau ','DR Congo','Central African Rep.','Angola','Benin','Botswana',
               'Burkina Faso','Burundi','Cameroon','Cape Verde','Central African Republic','Chad','Comoros','Congo','Congo Democratic Republic of',
@@ -110,13 +121,306 @@ while i<17588:
 se = pd.Series(continent)
 data['Continent'] = se.values
 
-#question fourth
+#continentInput=input("Enter the continent")
+
+
+manish=data.set_index('Continent')
+rai=manish.loc['asia']
+
+
+continentpreferedvalues= { 'Ball_Control'       : rai['Ball_Control'].agg(np.mean),                 #Picking the attributes for continent asia
+                           'Dribbling'          : rai['Dribbling'].agg(np.mean),
+                           'Dribbling'          : rai['Dribbling'].agg(np.mean),
+                           'Marking'            : rai['Marking'].agg(np.mean),
+                           'Sliding_Tackle'     : rai['Sliding_Tackle'].agg(np.mean),
+                           'Standing_Tackle'    : rai['Standing_Tackle'].agg(np.mean),
+                           'Aggression'         : rai['Aggression'].agg(np.mean),
+                           'Reactions'          : rai['Reactions'].agg(np.mean),
+                           'Attacking_Position' : rai['Attacking_Position'].agg(np.mean),
+                           'Interceptions'      : rai['Interceptions'].agg(np.mean),
+                           'Vision'             : rai['Vision'].agg(np.mean),
+                           'Composure'          : rai['Composure'].agg(np.mean),
+                           'Crossing'           : rai['Crossing'].agg(np.mean),
+                           #'Short_Pass'         : rai['Short_Pass'].agg(np.mean),
+                           #'Long_Pass'          : rai['Long_Pass'].agg(np.mean),
+                           #'Acceleration'       : rai['Acceleration'].agg(np.mean),
+                           #'Speed'              : rai['Speed'].agg(np.mean),
+                           #'Stamina'            : rai['Stamina'].agg(np.mean),
+                           #'Strength'           : rai['Strength'].agg(np.mean),
+                           #'Balance'            : rai['Balance'].agg(np.mean),
+                           'Agility'            : rai['Agility'].agg(np.mean),
+                          # 'Jumping'            : rai['Jumping'].agg(np.mean),
+                           'Heading'            : rai['Heading'].agg(np.mean),
+                           'Shot_Power'         : rai['Shot_Power'].agg(np.mean),
+                           'Finishing'          : rai['Finishing'].agg(np.mean),
+                           'Long_Shots'         : rai['Long_Shots'].agg(np.mean),
+                           'Curve'              : rai['Curve'].agg(np.mean),
+                           'Freekick_Accuracy'  : rai['Freekick_Accuracy'].agg(np.mean),
+                           'Penalties'          : rai['Penalties'].agg(np.mean),
+                           'Volleys'            : rai['Volleys'].agg(np.mean)}
+
+sorted_attributes = sorted(continentpreferedvalues.items(), key=operator.itemgetter(1),reverse=True)
+key=[cs[0] for cs in sorted_attributes]
+value=[cs[1] for cs in sorted_attributes]
+asia_attributes=key[0]
+asia_max=value[0]
+
+
+
+
+manish=data.set_index('Continent')
+rai=manish.loc['europe']
+
+
+continentpreferedvalues= { 'Ball_Control'       : rai['Ball_Control'].agg(np.mean),             #Picking the attributes for continent europe
+                           'Dribbling'          : rai['Dribbling'].agg(np.mean),
+                           'Marking'            : rai['Marking'].agg(np.mean),
+                           'Sliding_Tackle'     : rai['Sliding_Tackle'].agg(np.mean),
+                           'Standing_Tackle'    : rai['Standing_Tackle'].agg(np.mean),
+                           'Aggression'         : rai['Aggression'].agg(np.mean),
+                           'Reactions'          : rai['Reactions'].agg(np.mean),
+                           'Attacking_Position' : rai['Attacking_Position'].agg(np.mean),
+                           'Interceptions'      : rai['Interceptions'].agg(np.mean),
+                           'Vision'             : rai['Vision'].agg(np.mean),
+                           'Composure'          : rai['Composure'].agg(np.mean),
+                           'Crossing'           : rai['Crossing'].agg(np.mean),
+                           #'Short_Pass'         : rai['Short_Pass'].agg(np.mean),
+                           #'Long_Pass'          : rai['Long_Pass'].agg(np.mean),
+                           #'Acceleration'       : rai['Acceleration'].agg(np.mean),
+                           #'Speed'              : rai['Speed'].agg(np.mean),
+                           #'Stamina'            : rai['Stamina'].agg(np.mean),
+                           #'Strength'           : rai['Strength'].agg(np.mean),
+                           #'Balance'            : rai['Balance'].agg(np.mean),
+                          # 'Agility'            : rai['Agility'].agg(np.mean),
+                           #'Jumping'            : rai['Jumping'].agg(np.mean),
+                           'Heading'            : rai['Heading'].agg(np.mean),
+                           'Shot_Power'         : rai['Shot_Power'].agg(np.mean),
+                           'Finishing'          : rai['Finishing'].agg(np.mean),
+                           'Long_Shots'         : rai['Long_Shots'].agg(np.mean),
+                           'Curve'              : rai['Curve'].agg(np.mean),
+                           'Freekick_Accuracy'  : rai['Freekick_Accuracy'].agg(np.mean),
+                           'Penalties'          : rai['Penalties'].agg(np.mean),
+                           'Volleys'            : rai['Volleys'].agg(np.mean)}
+
+sorted_attributes = sorted(continentpreferedvalues.items(), key=operator.itemgetter(1),reverse=True)
+key=[cs[0] for cs in sorted_attributes]
+value=[cs[1] for cs in sorted_attributes]
+europe_attributes=key[0]
+europe_max=value[0]
+
+
+
+manish=data.set_index('Continent')
+rai=manish.loc['africa']
+
+
+continentpreferedvalues= { 'Ball_Control'       : rai['Ball_Control'].agg(np.mean),                     #Picking the attributes for continent africa
+                           'Dribbling'          : rai['Dribbling'].agg(np.mean),
+                           'Marking'            : rai['Marking'].agg(np.mean),
+                           'Sliding_Tackle'     : rai['Sliding_Tackle'].agg(np.mean),
+                           'Standing_Tackle'    : rai['Standing_Tackle'].agg(np.mean),
+                           'Aggression'         : rai['Aggression'].agg(np.mean),
+                           #'Reactions'          : rai['Reactions'].agg(np.mean),
+                           'Attacking_Position' : rai['Attacking_Position'].agg(np.mean),
+                           'Interceptions'      : rai['Interceptions'].agg(np.mean),
+                           'Vision'             : rai['Vision'].agg(np.mean),
+                           'Composure'          : rai['Composure'].agg(np.mean),
+                           'Crossing'           : rai['Crossing'].agg(np.mean),
+                           #'Short_Pass'         : rai['Short_Pass'].agg(np.mean),
+                          # 'Long_Pass'          : rai['Long_Pass'].agg(np.mean),
+                           'Acceleration'       : rai['Acceleration'].agg(np.mean),
+                          # 'Speed'              : rai['Speed'].agg(np.mean),
+                           #'Stamina'            : rai['Stamina'].agg(np.mean),
+                           #'Strength'           : rai['Strength'].agg(np.mean),
+                           #'Balance'            : rai['Balance'].agg(np.mean),
+                           #'Agility'            : rai['Agility'].agg(np.mean),
+                           #'Jumping'            : rai['Jumping'].agg(np.mean),
+                           'Heading'            : rai['Heading'].agg(np.mean),
+                           'Shot_Power'         : rai['Shot_Power'].agg(np.mean),
+                           'Finishing'          : rai['Finishing'].agg(np.mean),
+                           'Long_Shots'         : rai['Long_Shots'].agg(np.mean),
+                           'Curve'              : rai['Curve'].agg(np.mean),
+                           'Freekick_Accuracy'  : rai['Freekick_Accuracy'].agg(np.mean),
+                           'Penalties'          : rai['Penalties'].agg(np.mean),
+                           'Volleys'            : rai['Volleys'].agg(np.mean)}
+
+sorted_attributes = sorted(continentpreferedvalues.items(), key=operator.itemgetter(1),reverse=True)
+key=[cs[0] for cs in sorted_attributes]
+value=[cs[1] for cs in sorted_attributes]
+africa_attributes=key[0]
+africa_max=value[0]
+
+
+manish=data.set_index('Continent')
+rai=manish.loc['north_america']
+
+
+continentpreferedvalues= { 'Ball_Control'       : rai['Ball_Control'].agg(np.mean),                 #Picking the attributes for continent north_america
+                           'Dribbling'          : rai['Dribbling'].agg(np.mean),
+                           'Marking'            : rai['Marking'].agg(np.mean),
+                           'Sliding_Tackle'     : rai['Sliding_Tackle'].agg(np.mean),
+                           'Standing_Tackle'    : rai['Standing_Tackle'].agg(np.mean),
+                           'Aggression'         : rai['Aggression'].agg(np.mean),
+                           'Reactions'          : rai['Reactions'].agg(np.mean),
+                           'Attacking_Position' : rai['Attacking_Position'].agg(np.mean),
+                           'Interceptions'      : rai['Interceptions'].agg(np.mean),
+                           'Vision'             : rai['Vision'].agg(np.mean),
+                           'Composure'          : rai['Composure'].agg(np.mean),
+                           'Crossing'           : rai['Crossing'].agg(np.mean),
+                           #'Short_Pass'         : rai['Short_Pass'].agg(np.mean),
+                           #'Long_Pass'          : rai['Long_Pass'].agg(np.mean),
+                           #'Acceleration'       : rai['Acceleration'].agg(np.mean),
+                           'Speed'              : rai['Speed'].agg(np.mean),
+                           #'Stamina'            : rai['Stamina'].agg(np.mean),
+                           #'Strength'           : rai['Strength'].agg(np.mean),
+                           #'Balance'            : rai['Balance'].agg(np.mean),
+                          # 'Agility'            : rai['Agility'].agg(np.mean),
+                           #'Jumping'            : rai['Jumping'].agg(np.mean),
+                           'Heading'            : rai['Heading'].agg(np.mean),
+                           'Shot_Power'         : rai['Shot_Power'].agg(np.mean),
+                           'Finishing'          : rai['Finishing'].agg(np.mean),
+                           'Long_Shots'         : rai['Long_Shots'].agg(np.mean),
+                           'Curve'              : rai['Curve'].agg(np.mean),
+                           'Freekick_Accuracy'  : rai['Freekick_Accuracy'].agg(np.mean),
+                           'Penalties'          : rai['Penalties'].agg(np.mean),
+                           'Volleys'            : rai['Volleys'].agg(np.mean)}
+
+sorted_attributes = sorted(continentpreferedvalues.items(), key=operator.itemgetter(1),reverse=True)
+key=[cs[0] for cs in sorted_attributes]
+value=[cs[1] for cs in sorted_attributes]
+north_america_attributes=key[0]
+north_america_max=value[0]
+
+
+
+manish=data.set_index('Continent')
+rai=manish.loc['australia']
+
+
+continentpreferedvalues= { 'Ball_Control'       : rai['Ball_Control'].agg(np.mean),                 #Picking the attributes for continent australia
+                           'Dribbling'          : rai['Dribbling'].agg(np.mean),
+                           'Marking'            : rai['Marking'].agg(np.mean),
+                           'Sliding_Tackle'     : rai['Sliding_Tackle'].agg(np.mean),
+                           'Standing_Tackle'    : rai['Standing_Tackle'].agg(np.mean),
+                           'Aggression'         : rai['Aggression'].agg(np.mean),
+                           #'Reactions'          : rai['Reactions'].agg(np.mean),
+                           'Attacking_Position' : rai['Attacking_Position'].agg(np.mean),
+                           'Interceptions'      : rai['Interceptions'].agg(np.mean),
+                           #'Vision'             : rai['Vision'].agg(np.mean),
+                           'Composure'          : rai['Composure'].agg(np.mean),
+                           'Crossing'           : rai['Crossing'].agg(np.mean),
+                           #'Short_Pass'         : rai['Short_Pass'].agg(np.mean),
+                           #'Long_Pass'          : rai['Long_Pass'].agg(np.mean),
+                          # 'Acceleration'       : rai['Acceleration'].agg(np.mean),
+                           #'Speed'              : rai['Speed'].agg(np.mean),
+                           #'Stamina'            : rai['Stamina'].agg(np.mean),
+                           #'Strength'           : rai['Strength'].agg(np.mean),
+                           #'Balance'            : rai['Balance'].agg(np.mean),
+                          # 'Agility'            : rai['Agility'].agg(np.mean),
+                           #'Jumping'            : rai['Jumping'].agg(np.mean),
+                           #'Heading'            : rai['Heading'].agg(np.mean),
+                           #'Shot_Power'         : rai['Shot_Power'].agg(np.mean),
+                           'Finishing'          : rai['Finishing'].agg(np.mean),
+                           #'Long_Shots'         : rai['Long_Shots'].agg(np.mean),
+                           #'Curve'              : rai['Curve'].agg(np.mean),
+                           'Freekick_Accuracy'  : rai['Freekick_Accuracy'].agg(np.mean),
+                           'Penalties'          : rai['Penalties'].agg(np.mean),
+                           'Volleys'            : rai['Volleys'].agg(np.mean)}
+
+sorted_attributes = sorted(continentpreferedvalues.items(), key=operator.itemgetter(1),reverse=True)
+key=[cs[0] for cs in sorted_attributes]
+value=[cs[1] for cs in sorted_attributes]
+australia_attributes=key[0]
+australia_max=value[0]
+
+
+
+manish=data.set_index('Continent')
+rai=manish.loc['south_america']
+
+
+continentpreferedvalues= { 'Ball_Control'       : rai['Ball_Control'].agg(np.mean),               #Picking the attributes for continent South America
+                           'Dribbling'          : rai['Dribbling'].agg(np.mean),
+                           'Marking'            : rai['Marking'].agg(np.mean),
+                           'Sliding_Tackle'     : rai['Sliding_Tackle'].agg(np.mean),
+                           'Standing_Tackle'    : rai['Standing_Tackle'].agg(np.mean),
+                           'Aggression'         : rai['Aggression'].agg(np.mean),
+                           'Reactions'          : rai['Reactions'].agg(np.mean),
+                           'Attacking_Position' : rai['Attacking_Position'].agg(np.mean),
+                           'Interceptions'      : rai['Interceptions'].agg(np.mean),
+                           #'Vision'             : rai['Vision'].agg(np.mean),
+                           'Composure'          : rai['Composure'].agg(np.mean),
+                           'Crossing'           : rai['Crossing'].agg(np.mean),
+                           #'Short_Pass'         : rai['Short_Pass'].agg(np.mean),
+                           #'Long_Pass'          : rai['Long_Pass'].agg(np.mean),
+                           #'Acceleration'       : rai['Acceleration'].agg(np.mean),                  
+                           #'Speed'              : rai['Speed'].agg(np.mean),
+                          # 'Stamina'            : rai['Stamina'].agg(np.mean),
+                           #'Strength'           : rai['Strength'].agg(np.mean),
+                           #'Balance'            : rai['Balance'].agg(np.mean),
+                          # 'Agility'            : rai['Agility'].agg(np.mean),
+                           #'Jumping'            : rai['Jumping'].agg(np.mean),
+                           'Heading'            : rai['Heading'].agg(np.mean),
+                           'Shot_Power'         : rai['Shot_Power'].agg(np.mean),
+                           'Finishing'          : rai['Finishing'].agg(np.mean),
+                           'Long_Shots'         : rai['Long_Shots'].agg(np.mean),
+                           'Curve'              : rai['Curve'].agg(np.mean),
+                           'Freekick_Accuracy'  : rai['Freekick_Accuracy'].agg(np.mean),
+                           'Penalties'          : rai['Penalties'].agg(np.mean),
+                           'Volleys'            : rai['Volleys'].agg(np.mean)}
+
+sorted_attributes = sorted(continentpreferedvalues.items(), key=operator.itemgetter(1),reverse=True)
+key=[cs[0] for cs in sorted_attributes]
+value=[cs[1] for cs in sorted_attributes]
+south_america_attributes=key[0]
+south_america_max=value[0]
+
+
+Continent_wise_atttribute=[asia_attributes+'\nContinent - Asia',
+                           europe_attributes+'\nContinent - europe',
+                           africa_attributes+'\nContinent - Africa',
+                           north_america_attributes+'\nContinent - North_America'
+                           ,australia_attributes+'\nContinent - Australia',
+                           south_america_attributes+'\nContinent - South_America']
+
+
+max_attribute=[asia_max,europe_max,africa_max,north_america_max,australia_max,south_america_max]
+
+'''
+i=0
+while i<5:
+    Continent_name.insert(i,key[i])
+    best_attributes.insert(i,value[i])
+    i=i+1                                                             #for pie chart
+
+
+plt.pie(best_attributes, labels=Continent_name,
+                autopct='%1.1f%%', shadow=True, startangle=90)
+'''
+name_continent=['Asia','Europe','Africa','North_America','Australia','South_America',]
+rg=list(range(6))
+pl.xticks(rg, Continent_wise_atttribute)
+pl.xticks(range(6),Continent_wise_atttribute)
+pl.title('Best attributes of the players of a particular continents')
+pl.xlabel('Continent_wise_atttribute ->')
+pl.ylabel('max_attribute ->')
+pl.bar(rg,max_attribute,color=['red','blue','green','black','cyan','magenta'])     #Ploting The Graph
+pl.show()
+
+
+plt.show()
+
+# question Third finishes
+
+# -> question fourth
+
+
 
 
 clubInput=input("Enter the club")
 varun=data.set_index('Club')
 gupta=varun.loc[clubInput]
-#gupta=[varun['Reactions']agg(np.mean)]
+
 
 clubPreferredAttributes= { 'Ball_Control'       : gupta['Ball_Control'].agg(np.mean),
                            'Dribbling'          : gupta['Dribbling'].agg(np.mean),
@@ -149,9 +453,7 @@ clubPreferredAttributes= { 'Ball_Control'       : gupta['Ball_Control'].agg(np.m
                            'Volleys'            : gupta['Volleys'].agg(np.mean)}
 
 
-#print(g)
 sorted_d = sorted(clubPreferredAttributes.items(), key=operator.itemgetter(1),reverse=True)
-#print(sorted_d)
 
 
 
@@ -173,10 +475,13 @@ plt.pie(value2, labels=key2,
 
 
 plt.show()
-#question fifth
+
+# question fourth finishes
+
+# -> question fifth
 
 
-#ax = plt.subplots()
+
 i=0
 name = data['Name'].tolist()
 
@@ -205,3 +510,5 @@ pl.ylabel('Duration')
 pl.plot(rg,joiningYear,'*',color='blue')
 plt.grid()
 pl.show()
+
+# question fifth finishes
