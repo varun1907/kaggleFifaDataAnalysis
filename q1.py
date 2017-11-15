@@ -385,6 +385,7 @@ Continent_wise_atttribute=[asia_attributes+'\nContinent - Asia',
 
 
 max_attribute=[asia_max,europe_max,africa_max,north_america_max,australia_max,south_america_max]
+
 '''
 i=0
 while i<5:
@@ -394,6 +395,7 @@ while i<5:
 plt.pie(best_attributes, labels=Continent_name,
                 autopct='%1.1f%%', shadow=True, startangle=90)
 '''
+
 name_continent=['Asia','Europe','Africa','North_America','Australia','South_America',]
 rg=list(range(6))
 pl.xticks(rg, Continent_wise_atttribute)
@@ -405,7 +407,6 @@ pl.bar(rg,max_attribute,color=['red','blue','green','black','cyan','magenta'])  
 pl.show()
 
 
-plt.show()
 
 # question Third finishes
 
@@ -512,6 +513,7 @@ pl.show()
 
 
 
+
 #question sixth
 gkPositioning=data['GK_Positioning'].tolist()
 gkDiving=data['GK_Diving'].tolist()
@@ -544,17 +546,12 @@ while i<160:
     maxGoalSkills.insert(i,maxPlayer)
     i=i+1
 
-dictionary = dict(zip(teamsNames, maxGoalSkills))
-sorted_dictionary = sorted(dictionary.items(), key=operator.itemgetter(1),reverse=True)
+#dictionary = dict(zip(teamsNames, maxGoalSkills))
+#sorted_dictionary = sorted(dictionary.items(), key=operator.itemgetter(1),reverse=True)
 
-sortedGoalKey=[]
-sortedGoalValue=[]
-sortedGoalKey=[x[0] for x in sorted_dictionary]
-sortedGoalValue=[x[1] for x in sorted_dictionary]
 
-sortedGoalKey1=[]
-sortedGoalValue1=[]
 
+'''
 i=0
 while i<15:
     sortedGoalKey1.insert(i,sortedGoalKey[i])
@@ -567,15 +564,48 @@ plt.pie(sortedGoalValue1, labels=sortedGoalKey1,
 
 
 plt.show()
-
 '''
+
+
 xqw = list(range(160))
-pl.xticks(xqw, sortedGoalKey)
+pl.xticks(xqw, teamsNames)
 pl.xticks(range(160), xTicks,rotation=90)
 pl.title('best goal keeper')
 pl.xlabel('Teams')
 pl.ylabel('Attributes')
-pl.plot(x,sortedGoalValue,'*',color='red')
+pl.plot(x,maxGoalSkills,'*',color='red')
 plt.grid()
 pl.show()
-'''
+
+
+#question sixth
+
+#question seven
+
+
+
+team_name = input('Enter the Team name')
+kumar=data.set_index('Nationality')
+rai=kumar.loc[team_name]
+
+prakhar=rai['Preffered_Foot']
+pra=prakhar.tolist()
+pralen=len(pra)
+i=0
+left=0
+right=0
+
+while i<pralen:
+    if pra[i] == 'Right':
+        right=right+1
+    else:
+        left=left+1
+    i=i+1
+
+foot=['Left','Right']
+foot_count_list=[left,right]
+plt.pie(foot_count_list, labels=foot,
+                autopct='%1.1f%%', shadow=True, startangle=90)
+
+
+plt.show()
