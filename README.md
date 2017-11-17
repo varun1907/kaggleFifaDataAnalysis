@@ -21,3 +21,9 @@ Total of 7 analysis has been performed on the dataset.Following are:-
 (v) Analytics on contract period(Analysis on individual Player)
 (vi)Analytics on which country has best goalkeeper
 (vii)Analytics on Preffered_Foot(According To National Team)
+
+How to see analysis:-
+(i)Clone the repository
+(ii)if using Ubuntu go to Terminal ,if Windows cmd,Navigate to the repository location 
+(iii)Run q1.py
+(iv)7 graphs will be displayed and in (iv) and (vii) part input name of any club and nationality respectively from dataset and see the         results.
