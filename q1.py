@@ -5,7 +5,6 @@ import pylab as pl
 import math
 import operator
 
-
 data=pd.read_csv('FullData.csv')
 
 k=data.groupby('Nationality')
@@ -50,6 +49,7 @@ pl.show()
 
 # -> question second
 
+
 i=0;
 m=['0']
 del m[0]
@@ -73,6 +73,7 @@ pl.show()
 
 
 # -> question third
+
 
 africa = ['Algeria','Guinea Bissau','São Tomé & Príncipe','Guinea Bissau ','DR Congo','Central African Rep.','Angola','Benin','Botswana',
               'Burkina Faso','Burundi','Cameroon','Cape Verde','Central African Republic','Chad','Comoros','Congo','Congo Democratic Republic of',
@@ -410,6 +411,7 @@ pl.show()
 
 # question Third finishes
 
+
 # -> question fourth
 
 
@@ -476,6 +478,7 @@ plt.show()
 
 # question fourth finishes
 
+
 # -> question fifth
 
 
@@ -509,12 +512,13 @@ pl.plot(rg,joiningYear,'*',color='blue')
 plt.grid()
 pl.show()
 
+
 # question fifth finishes
 
 
-
-
 #question sixth
+
+
 gkPositioning=data['GK_Positioning'].tolist()
 gkDiving=data['GK_Diving'].tolist()
 gkKicking=data['GK_Kicking'].tolist()
@@ -606,6 +610,5 @@ foot=['Left','Right']
 foot_count_list=[left,right]
 plt.pie(foot_count_list, labels=foot,
                 autopct='%1.1f%%', shadow=True, startangle=90)
-
 
 plt.show()
