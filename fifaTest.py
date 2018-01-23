@@ -4,7 +4,6 @@
 Created on Thu Nov  9 23:32:24 2017
 
 
-@author
 '''
 import pandas as pd
 import numpy as np
