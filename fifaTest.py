@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 
-Created on Thu Nov  9 23:32:
+Question 1
 '''
 import pandas as pd
 import numpy as np
